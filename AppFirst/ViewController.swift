@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     class Node{
         let saa = "nio"
         let hu = 8
+        let huj = 3
     }
     override func viewDidLoad() {
         super.viewDidLoad()
