@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     class Node{
         let saa = "nio"
+        let hu = 8
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
     }
     
 
+    
 
 }
 
