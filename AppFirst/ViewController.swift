@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         let saa = "nio"
         let hu = 8
         let huj = 3
+        let we = "888"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
