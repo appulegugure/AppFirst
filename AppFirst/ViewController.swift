@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     class Node{
-        
+        let saa = "nio"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
