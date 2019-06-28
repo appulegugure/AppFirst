@@ -9,9 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    class node: Hashable {
+        
+    }
+    enum nodeNo {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view.
     }
     
