@@ -43,6 +43,7 @@ class ViewController: UIViewController {
         static func == (lhs: nodeInformation, rhs: nodeInformation) -> Bool {
             return lhs.nodeNo.rawValue == rhs.nodeNo.rawValue
         }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -160,9 +161,9 @@ class ViewController: UIViewController {
         }
         
         //////////////
-        if x.nodeNo == nodeNo.start {
+        if x.nodeNo == .start {
             for nodeStore in nodeArreayToY {
-                if nodeStore.rawValue == 1 {
+                if nodeStore.nodeNo == nodeNo.one{
                     //optional型へ足し算しているためのエラー
                     nodeStore.addArreay(addValue:streetArreayStart[0])
                     //Startの視点を変更して次のノードへ足し算する。層が多くなる毎に階層も深くなる。
