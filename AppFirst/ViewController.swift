@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    class node: Hashable {
+    class node {
         
     }
     enum nodeNo {
