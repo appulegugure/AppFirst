@@ -29,7 +29,11 @@ class ViewController: UIViewController {
         var hashValue: Int {
             return nodeNo.rawValue
         }
-        var nodeValue:Int = 0
+        var nodeValue:Int {
+            get{
+                return arreay.min()!
+            }
+        }
         var nodeNo:nodeNo = .one
         var arreay = [Int]()
         var returnMin:Int?{
@@ -49,84 +53,64 @@ class ViewController: UIViewController {
         
         let x:nodeInformation = nodeInformation()
         x.nodeNo = .start
-        x.nodeValue = 0
         
         let node1:nodeInformation = nodeInformation()
         node1.nodeNo = .one
-        node1.nodeValue = 0
-        
+
         let node2:nodeInformation = nodeInformation()
         node2.nodeNo = .two
-        node2.nodeValue = 0
         
         let node3:nodeInformation = nodeInformation()
         node3.nodeNo = .three
-        node3.nodeValue = 0
-        
+   
         let node4:nodeInformation = nodeInformation()
         node4.nodeNo = .four
-        node4.nodeValue = 0
         
         let node5:nodeInformation = nodeInformation()
         node5.nodeNo = .five
-        node5.nodeValue = 0
         
         let node6:nodeInformation = nodeInformation()
         node6.nodeNo = .six
-        node6.nodeValue = 0
         //セクション２　　 y , w   Goal z
         let y:nodeInformation = nodeInformation()
         y.nodeNo = .secondOne
-        y.nodeValue = 0
         
         let w:nodeInformation = nodeInformation()
         w.nodeNo = .secondTwo
-        w.nodeValue = 0
         
         //セクション３　Tone,Ttwo,Tthree,Tfour,Tfive,Tsix
         let Tone:nodeInformation = nodeInformation()
         w.nodeNo = .tOne
-        w.nodeValue = 0
         
         let Ttwo:nodeInformation = nodeInformation()
         w.nodeNo = .tTwo
-        w.nodeValue = 0
         
         let Tthree:nodeInformation = nodeInformation()
         w.nodeNo = .tThree
-        w.nodeValue = 0
         
         let Tfour:nodeInformation = nodeInformation()
         w.nodeNo = .tFour
-        w.nodeValue = 0
         
         let Tfive:nodeInformation = nodeInformation()
         w.nodeNo = .tFive
-        w.nodeValue = 0
         
         let Tsix:nodeInformation = nodeInformation()
         w.nodeNo = .tSix
-        w.nodeValue = 0
         //セクション4  Fone,Ftwo,Fthree,Ffour
         let Fone:nodeInformation = nodeInformation()
         w.nodeNo = .fOne
-        w.nodeValue = 0
         
         let Ftwo:nodeInformation = nodeInformation()
         w.nodeNo = .fTwo
-        w.nodeValue = 0
         
         let Fthree:nodeInformation = nodeInformation()
         w.nodeNo = .fThree
-        w.nodeValue = 0
         
         let Ffour:nodeInformation = nodeInformation()
         w.nodeNo = .fFour
-        w.nodeValue = 0
         //⭐︎Goal
         let z:nodeInformation = nodeInformation()
         z.nodeNo = .end
-        z.nodeValue = 0
         
         //各nodeの宛先nodeの配列を宣言
         var nodeArreayToW:[nodeInformation] = [node1,node2,node3,node4,node5,node6]
@@ -144,17 +128,18 @@ class ViewController: UIViewController {
         let sdiff1 = section1Node.symmetricDifference(tergetNode1)
         let sdiff2 = section2Node.symmetricDifference(tergetNode2)
         
+        //配列にゼロが入っている場合、そのノードは通らない。
         
         switch  tergetNode1.isEmpty {
         case false :
             for plusCal_Node in sdiff1 {
-                plusCal_Node.nodeValue += 10000
+                plusCal_Node.addArreay(addValue: 0)
             }
             fallthrough
             
         case false :
             for plusCal_Node in sdiff2 {
-                plusCal_Node.nodeValue += 10000
+                plusCal_Node.addArreay(addValue: 0)
             }
         default:
             print("エラー")
@@ -246,8 +231,8 @@ class ViewController: UIViewController {
         var minOfW = w.returnMin
         var minOfY = y.returnMin
         
-        w.nodeValue = minOfW! + streetArreayEnd[0]
-        y.nodeValue = minOfY! + streetArreayEnd[0]
+        w.addArreay(addValue: streetArreayEnd[0])
+        y.addArreay(addValue: streetArreayEnd[1])
         
         print(node1.nodeValue)
         print(node2.nodeValue)
@@ -257,18 +242,17 @@ class ViewController: UIViewController {
         print(node6.nodeValue)
         print(y.arreay)
         print(w.arreay)
-        print(y.returnMin)
-        print(w.returnMin)
+        print(y.nodeValue)
+        print(w.nodeValue)
         if z.nodeValue == 0 {
             for nodeStock in nodeArreayToZ{
                 z.addArreay(addValue: nodeStock.nodeValue)
                 //optionalのため比較演算子が適用できない　classのプロパティをIntに変えればyおい
             }
         }
-        let score = z.returnMin
-        z.nodeValue = score!
+        let score = z.nodeValue
         
-        print(z.nodeValue)
+        print(score)
         // Do any additional setup after loading the view.
     }
     
