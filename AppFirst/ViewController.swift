@@ -5,6 +5,20 @@
 //  Created by アップルググれ on 2019/06/26.
 //  Copyright © 2019 アップルググ. All rights reserved.
 //
+/* 2019/6/29
+ ・同セクションのnodeからnodeValueを書き換える場合、その後の処理を全て更新する。
+ ・Goalの値が決まった時、そこからどの様にしてルートを決めるか
+ ・同じ値があった場合どうするか
+ 
+ 
+ 
+ ⭐︎一定方向の経路選択であれば可能
+ ⭐︎通らなくてはならないnodeがある場合の経路選択も可能
+ 
+ 
+ 
+ */
+
 
 import UIKit
 
@@ -34,6 +48,7 @@ class ViewController: UIViewController {
                 return arreay.min()!
             }
         }
+            
         var nodeNo:nodeNo = .one
         var arreay = [Int]()
         var returnMin:Int?{
